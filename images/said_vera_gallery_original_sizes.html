@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Muhammed &amp; Vera</title>
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com">
+    // === Kalpler animasyonu ===
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random()*100+"vw";
+      heart.style.animationDuration = 3+Math.random()*3+"s";
+      heart.textContent = "💖";
+      document.body.appendChild(heart);
+      setTimeout(()=>heart.remove(),6000);
+    }, 1200);
+
+</script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { boxShadow: { soft: '0 10px 30px -12px rgba(0,0,0,0.25)' } } }
+    }
+
+    // === Kalpler animasyonu ===
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random()*100+"vw";
+      heart.style.animationDuration = 3+Math.random()*3+"s";
+      heart.textContent = "💖";
+      document.body.appendChild(heart);
+      setTimeout(()=>heart.remove(),6000);
+    }, 1200);
+
+</script>
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest">
+    // === Kalpler animasyonu ===
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random()*100+"vw";
+      heart.style.animationDuration = 3+Math.random()*3+"s";
+      heart.textContent = "💖";
+      document.body.appendChild(heart);
+      setTimeout(()=>heart.remove(),6000);
+    }, 1200);
+
+</script>
+<style>
+    .glass{background:rgba(255,255,255,.7);backdrop-filter:saturate(140%) blur(8px)}
+    .glass-dark{background:rgba(255,255,255,.05);backdrop-filter:saturate(140%) blur(8px)}
+
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      color: rgba(255,100,150,0.8);
+      animation: fall 6s linear forwards;
+      pointer-events: none;
+      z-index: 10;
+    }
+    @keyframes fall {
+      to { transform: translateY(110vh); opacity: 0; }
+    }
+
+</style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-rose-50 to-white dark:from-zinc-950 dark:to-zinc-900 text-zinc-800 dark:text-zinc-100">
+<script>
+    // === CONFIG – burayı düzenleyin ===
+    const CONFIG = {
+      couple: { you: 'Muhammed', partner: 'Vera', startedAt: '2025-01-11', city: 'İzmir & Şırnak' },
+      socials: {
+        instagram: 'https://instagram.com/',
+        mail: 'mailto:mail@ornek.com',
+        phone: 'tel:+900000000000'
+      },
+      hero: {
+        headline: 'Birlikte Daha Güzel',
+        sub: 'Küçük anları büyük anılara çeviriyoruz.',
+        photo: 'https://images.unsplash.com/photo-1529636438564-3491f3b49a3e?q=80&w=1600&auto=format&fit=crop'
+      },
+      gallery: [
+
+      ],
+      timeline: [
+        { date: '2022-06-12', title: 'Tanıştık', text: "İlk kahvemizi Beşiktaş'ta içtik." },
+        { date: '2022-07-01', title: 'İlk Randevu', text: 'Ortaköy sahilde yürüyüş.' },
+        { date: '2023-02-14', title: 'İlk Sevgililer Günü', text: 'Evde pizza + film gecesi.' }
+      ],
+      spotify: 'https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator'
+    };
+
+    // === Helpers ===
+    const pad = n => n < 10 ? '0'+n : n;
+    const daysBetween = (start) => {
+      const s = new Date(start), now = new Date();
+      s.setHours(0,0,0,0); now.setHours(0,0,0,0);
+      return Math.max(0, Math.floor((now - s) / 86400000));
+    };
+    const nextAnniversary = (start) => {
+      const s = new Date(start), now = new Date();
+      let cand = new Date(now.getFullYear(), s.getMonth(), s.getDate());
+      if (cand < now) cand = new Date(now.getFullYear()+1, s.getMonth(), s.getDate());
+      const days = Math.ceil((cand.setHours(0,0,0,0) - now.setHours(0,0,0,0))/86400000);
+      return { date: cand, days };
+    };
+    const storageKey = `guestbook_${CONFIG.couple.you}_${CONFIG.couple.partner}`;
+
+    // === Kalpler animasyonu ===
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random()*100+"vw";
+      heart.style.animationDuration = 3+Math.random()*3+"s";
+      heart.textContent = "💖";
+      document.body.appendChild(heart);
+      setTimeout(()=>heart.remove(),6000);
+    }, 1200);
+
+</script>
+<!-- NAVBAR -->
+<header class="sticky top-0 z-40 border-b border-rose-200/50 dark:border-rose-900/50 bg-gradient-to-r from-rose-100 via-pink-200 to-rose-100 dark:from-zinc-900 dark:via-rose-950 dark:to-zinc-900 bg-opacity-80 backdrop-blur-md shadow-md">
+<div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+<a class="flex items-center gap-2 font-semibold" href="#home">
+<i class="w-5 h-5 text-rose-500" data-lucide="heart"></i>
+<span id="brand"></span>
+</a>
+<nav class="flex justify-center items-center gap-10 text-sm font-medium py-4">
+<a class="flex items-center gap-2 hover:text-rose-500 transition group relative transition text-lg font-semibold" href="#home">
+<!-- Kalp ikonu -->
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+    Anasayfa
+  <span class="absolute left-0 w-full h-0.5 bg-white scale-x-0 origin-center transition-transform duration-500 group-hover:scale-x-100 g r o u p - h o v e r : s h a d o w - [ 0 _ 0 _ 8 p x _ # f f f f f f ] -bottom-2"></span></a>
+<a class="flex items-center gap-2 hover:text-rose-500 transition group relative transition text-lg font-semibold" href="#story">
+<!-- Kağıt ikonu -->
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 2h8l5 5v13a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+    Hikayemiz
+  <span class="absolute left-0 w-full h-0.5 bg-white scale-x-0 origin-center transition-transform duration-500 group-hover:scale-x-100 g r o u p - h o v e r : s h a d o w - [ 0 _ 0 _ 8 p x _ # f f f f f f ] -bottom-2"></span></a>
+<a class="flex items-center gap-2 hover:text-rose-500 transition group relative transition text-lg font-semibold" href="#gallery">
+<!-- Özel gönderilen ikon -->
+<svg aria-hidden="true" class="icon" fill="currentColor" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.38759 8.53403C10.0712 8.43795 10.7036 8.91485 10.7997 9.59849C10.8956 10.2819 10.4195 10.9133 9.73622 11.0096C9.05259 11.1057 8.4202 10.6298 8.32411 9.94614C8.22804 9.26258 8.70407 8.63022 9.38759 8.53403Z"></path>
+<path clip-rule="evenodd" d="M10.3886 5.58677C10.8476 5.5681 11.2608 5.5975 11.6581 5.74204L11.8895 5.83677C12.4185 6.07813 12.8721 6.46152 13.1991 6.94614L13.2831 7.07993C13.4673 7.39617 13.5758 7.74677 13.6571 8.14048C13.7484 8.58274 13.8154 9.13563 13.8993 9.81919L14.245 12.6317L14.3554 13.5624C14.3852 13.8423 14.4067 14.0936 14.4159 14.3192C14.4322 14.7209 14.4118 15.0879 14.3095 15.4393L14.2606 15.5887C14.0606 16.138 13.7126 16.6202 13.2577 16.9823L13.0565 17.1297C12.7061 17.366 12.312 17.4948 11.8622 17.5877C11.6411 17.6334 11.3919 17.673 11.1132 17.7118L10.1835 17.8299L7.37098 18.1756C6.68748 18.2596 6.13466 18.3282 5.68348 18.3465C5.28176 18.3628 4.9148 18.3424 4.56337 18.2401L4.41395 18.1913C3.86454 17.9912 3.38258 17.6432 3.0204 17.1883L2.87294 16.9872C2.63655 16.6367 2.50788 16.2427 2.41493 15.7928C2.36926 15.5717 2.32964 15.3226 2.29091 15.0438L2.17274 14.1141L1.82704 11.3016C1.74311 10.6181 1.67455 10.0653 1.65614 9.61411C1.63747 9.15518 1.66697 8.74175 1.81141 8.34458L1.90614 8.11313C2.14741 7.58441 2.53115 7.13051 3.01552 6.80356L3.1493 6.71958C3.46543 6.53545 3.8163 6.42688 4.20985 6.34556C4.65206 6.25423 5.20506 6.18729 5.88856 6.10337L8.70106 5.75767L9.63173 5.64731C9.91161 5.61744 10.163 5.59597 10.3886 5.58677Z" fill-rule="evenodd"></path>
+<path d="M9.72841 1.5897C10.1797 1.60809 10.7322 1.67665 11.4159 1.7606L14.2284 2.1063L15.1581 2.22446C15.4371 2.26322 15.6859 2.3028 15.9071 2.34849C16.3571 2.44144 16.7509 2.57006 17.1015 2.80649L17.3026 2.95396C17.7576 3.31618 18.1055 3.79802 18.3056 4.34751L18.3544 4.49692C18.4567 4.84845 18.4772 5.21519 18.4608 5.61704C18.4516 5.84273 18.4292 6.09381 18.3993 6.37388L18.2899 7.30454L17.9442 10.117C17.8603 10.8007 17.7934 11.3535 17.702 11.7958C17.6207 12.1895 17.5122 12.5401 17.328 12.8563L17.244 12.9901C17.0958 13.2098 16.921 13.4086 16.7255 13.5829L16.6171 13.662C16.3496 13.8174 16.0009 13.769 15.787 13.5292C15.5427 13.255 15.5666 12.834 15.8407 12.5897L16.0018 12.4276C16.0519 12.3703 16.0986 12.3095 16.1415 12.2459L16.2128 12.1239C16.2813 11.9875 16.3421 11.8041 16.3993 11.5272C16.4771 11.1504 16.5383 10.6605 16.6249 9.95493L16.9696 7.14243L17.077 6.23228C17.1047 5.97357 17.1239 5.7546 17.1317 5.56235C17.1432 5.27997 17.1291 5.08722 17.0956 4.93833L17.0556 4.80259C16.9396 4.4842 16.7381 4.20493 16.4745 3.99497L16.3573 3.90903C16.2103 3.80991 16.0075 3.72745 15.6386 3.65122C15.4502 3.61231 15.2331 3.57756 14.9755 3.54185L14.0663 3.42563L11.2538 3.08091C10.5481 2.99426 10.0582 2.93444 9.67372 2.9188C9.39129 2.90732 9.19861 2.92142 9.0497 2.95493L8.91395 2.99497C8.59536 3.11093 8.31538 3.31224 8.10536 3.57603L8.0204 3.69321C7.95293 3.79324 7.89287 3.91951 7.83778 4.10532L7.787 4.23032C7.64153 4.50308 7.31955 4.64552 7.01161 4.55454C6.65948 4.45019 6.45804 4.07952 6.56239 3.72739L6.63075 3.52036C6.70469 3.31761 6.79738 3.12769 6.91786 2.94907L7.06532 2.7479C7.42756 2.29294 7.90937 1.94497 8.45888 1.74497L8.60829 1.69614C8.95981 1.59385 9.32655 1.57335 9.72841 1.5897Z"></path>
+</svg>
+      Galeri
+    <span class="absolute left-0 w-full h-0.5 bg-white scale-x-0 origin-center transition-transform duration-500 group-hover:scale-x-100 g r o u p - h o v e r : s h a d o w - [ 0 _ 0 _ 8 p x _ # f f f f f f ] -bottom-2"></span></a>
+<a class="flex items-center gap-2 hover:text-rose-500 transition group relative transition text-lg font-semibold" href="#dates">
+<!-- Takvim ikonu -->
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7H3v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+    Tarihler
+  <span class="absolute left-0 w-full h-0.5 bg-white scale-x-0 origin-center transition-transform duration-500 group-hover:scale-x-100 g r o u p - h o v e r : s h a d o w - [ 0 _ 0 _ 8 p x _ # f f f f f f ] -bottom-2"></span></a>
+<a class="flex items-center gap-2 hover:text-rose-500 transition group relative transition text-lg font-semibold" href="#music">
+<!-- İnsanlar ikonu -->
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17 20h5v-2a4 4 0 00-5-4M9 20H4v-2a4 4 0 015-4m0 0a4 4 0 110-8 4 4 0 010 8zm10 0a4 4 0 100-8 4 4 0 000 8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+    Müzik Listemiz
+  <span class="absolute left-0 w-full h-0.5 bg-white scale-x-0 origin-center transition-transform duration-500 group-hover:scale-x-100 g r o u p - h o v e r : s h a d o w - [ 0 _ 0 _ 8 p x _ # f f f f f f ] -bottom-2"></span></a>
+<a class="flex items-center gap-2 hover:text-rose-500 transition group relative transition text-lg font-semibold" href="#contact">
+<!-- E-mail ikonu -->
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+    İletişim
+  <span class="absolute left-0 w-full h-0.5 bg-white scale-x-0 origin-center transition-transform duration-500 group-hover:scale-x-100 g r o u p - h o v e r : s h a d o w - [ 0 _ 0 _ 8 p x _ # f f f f f f ] -bottom-2"></span></a>
+</nav>
+<button class="p-2 rounded-xl border border-black/5 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10" id="themeToggle" title="Tema Değiştir">
+<i class="w-5 h-5" data-lucide="sun"></i>
+</button>
+</div>
+</header><section class="relative overflow-hidden" id="home">
+<div class="absolute inset-0 -z-10 opacity-20 bg-gradient-to-br from-rose-300 via-rose-200 to-rose-100 dark:from-rose-900/30 dark:via-rose-800/20 dark:to-rose-700/10"></div>
+<div class="max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-8 items-center">
+<div>
+<span class="inline-flex items-center rounded-full px-3 py-1 text-sm bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-200">
+<i class="w-4 h-4 mr-1" data-lucide="map-pin"></i>
+<span id="city"></span>
+</span>
+<h1 id="headline" class="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent drop-shadow-lg animate-pulse"></h1>
+<p class="mt-6 text-lg text-zinc-700 dark:text-zinc-200">Birlikte yazdığımız en güzel hikaye...</p>
+<p class="mt-4 text-lg opacity-80" id="sub"></p>
+<div class="mt-6 flex flex-wrap items-center gap-3">
+<span class="text-sm opacity-80">Birlikte</span>
+<span class="text-2xl font-bold px-3 py-1 rounded-xl bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-200" id="togetherDays"></span>
+<span class="text-sm">💞</span>
+</div>
+<div class="mt-6 flex gap-3">
+<a class="px-4 py-2 rounded-xl text-white shadow-md bg-gradient-to-r from-rose-500 to-pink-500" href="#gallery">Fotoğraflara Bak</a>
+<a class="px-4 py-2 rounded-xl border border-black/10 dark:border-white/10" href="#story">Hikayemiz</a>
+</div>
+</div>
+<div>
+<div class="aspect-[4/3] w-full overflow-hidden rounded-3xl border border-black/5 dark:border-white/10 shadow-lg">
+<img alt="Couple" class="w-full h-full object-cover" id="heroPhoto"src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&amp;w=800"/>
+</div>
+</div>
+</div>
+</section><section class="scroll-mt-24 py-16" id="story">
+<div class="container mx-auto text-center py-20">
+<h2 class="text-4xl font-bold mb-12">📖 Hikayemiz</h2>
+<ul class="space-y-6 text-lg">
+<li><strong>12 Haziran 2022 – Tanıştık:</strong> İstanbul’da ilk kahve ☕</li>
+<li><strong>1 Temmuz 2022 – İlk Randevu:</strong> Ortaköy sahilinde yürüyüş 🌊</li>
+<li><strong>14 Şubat 2023 – İlk Sevgililer Günü:</strong> Evde pizza &amp; film gecesi 🍕🎬</li>
+<li><strong>10 Ocak 2025 – Afyon Tatili:</strong> Kışın sıcacık anılar biriktirme ❄️</li>
+<li><strong>11 Ocak 2025 – Afyon Gezisi:</strong> Yeni yerler keşfetme 🏞️</li>
+</ul>
+</div>
+</section><section class="py-16 bg-white dark:bg-zinc-950" id="gallery">
+<div class="container mx-auto text-center py-20">
+<h2 class="text-4xl font-bold mb-12">🖼️ Galeri</h2><div class="flex flex-wrap gap-4 justify-center">
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/1.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/2.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/3.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/4.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/5.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/6.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/7.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/8.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/9.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/10.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/11.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/12.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/13.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/14.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/15.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/16.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/17.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/18.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/19.jpg"/>
+  <img alt="bi1" class="max-h-96 object-contain rounded-lg shadow-lg" src="images/20.jpg"/>
+</div></section><section class="scroll-mt-24 py-16" id="dates">
+<div class="max-w-6xl mx-auto px-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="p-2 rounded-2xl bg-rose-100 dark:bg-rose-900/40"><i class="w-5 h-5 text-rose-500" data-lucide="calendar"></i></div>
+<h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Önemli Tarihler</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="p-6 rounded-xl shadow-md bg-white dark:bg-rose-900/40">
+<h3 class="text-2xl font-bold mb-6">12 Haziran 2022</h3>
+<p class="mt-2 font-semibold">İlk Tanışma</p>
+<p class="mt-1 text-sm text-gray-600 dark:text-gray-300">Beşiktaş’ta kahvemizi içtik ve her şey başladı.</p>
+</div>
+<div class="p-6 rounded-xl shadow-md bg-white dark:bg-rose-900/40">
+<h3 class="text-2xl font-bold mb-6">12 Haziran 2022</h3>
+<p class="mt-2 font-semibold">İlk Randevu</p>
+<p class="mt-1 text-sm text-gray-600 dark:text-gray-300">Ortaköy sahilinde yürüyüş, uzun sohbetler...</p>
+</div>
+<div class="p-6 rounded-xl shadow-md dark:bg-rose-900/40">
+<h3 class="text-2xl font-bold mb-6">12 Haziran 2022</h3>
+<p class="mt-2 font-semibold">İlk Sevgililer Günü</p>
+<p class="mt-1 text-sm text-gray-600 dark:text-gray-300">Evde pizza + film gecesi, unutulmaz bir anı.</p>
+</div>
+</div>
+</div>
+</section><section class="scroll-mt-24 py-16" id="todo">
+<div class="max-w-6xl mx-auto px-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="p-2 rounded-2xl bg-rose-100 dark:bg-rose-900/40"><i class="w-5 h-5 text-rose-500" data-lucide="star"></i></div>
+<h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Planlarımız</h2>
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="rounded-2xl border border-black/5  dark:bg-rose-900/40 p-5 glass dark:glass-dark shadow-soft">
+<h3 class="font-semibold mb-3">Yakın Planlar</h3>
+<ul class="space-y-2" id="nearPlans"><li class="flex items-start gap-3 p-3 rounded-xl border border-black/5 dark:border-white/10 bg-white/60 dark:bg-white/5"><i class="w-4 h-4 text-rose-500 mt-1" data-lucide="check"></i><span class="text-sm md:text-base">2025 Ocak – Kış tatili: Afyon kaplıca kaçamağı</span></li><li class="flex items-start gap-3 p-3 rounded-xl border border-black/5 dark:border-white/10 bg-white/60 dark:bg-white/5"><i class="w-4 h-4 text-rose-500 mt-1" data-lucide="check"></i><span class="text-sm md:text-base">2025 Mart – Ailelerle akşam yemeği</span></li><li class="flex items-start gap-3 p-3 rounded-xl border border-black/5 dark:border-white/10 bg-white/60 dark:bg-white/5"><i class="w-4 h-4 text-rose-500 mt-1" data-lucide="check"></i><span class="text-sm md:text-base">2025 Haziran – Ege kıyıları mini tur</span></li><li class="flex items-start gap-3 p-3 rounded-xl border border-black/5 dark:border-white/10 bg-white/60 dark:bg-white/5"><i class="w-4 h-4 text-rose-500 mt-1" data-lucide="check"></i><span class="text-sm md:text-base">2025 Temmuz – Fotoğraf çekimi (dış mekan)</span></li></ul>
+</div>
+<div class="rounded-2xl border border-black/5  dark:bg-rose-900/40 p-5 glass dark:glass-dark shadow-soft">
+<h3 class="font-semibold mb-3">Hayal Listesi</h3>
+<ul class="space-y-2" id="dreamList"><li class="flex items-start gap-3 p-3 rounded-xl border border-black/5 dark:border-white/10 bg-white/60 dark:bg-white/5"><i class="w-4 h-4 text-rose-500 mt-1" data-lucide="star"></i><span class="text-sm md:text-base">2026 – Nişan hazırlıkları ve mekan araştırması</span></li><li class="flex items-start gap-3 p-3 rounded-xl border border-black/5 dark:border-white/10 bg-white/60 dark:bg-white/5"><i class="w-4 h-4 text-rose-500 mt-1" data-lucide="star"></i><span class="text-sm md:text-base">2027 – Beraber ilk evimizi kurmak</span></li><li class="flex items-start gap-3 p-3 rounded-xl border border-black/5 dark:border-white/10 bg-white/60 dark:bg-white/5"><i class="w-4 h-4 text-rose-500 mt-1" data-lucide="star"></i><span class="text-sm md:text-base">2028 – Uzakdoğu uzun rota (Japonya, Tayland)</span></li><li class="flex items-start gap-3 p-3 rounded-xl border border-black/5 dark:border-white/10 bg-white/60 dark:bg-white/5"><i class="w-4 h-4 text-rose-500 mt-1" data-lucide="star"></i><span class="text-sm md:text-base">Birlikte bir hayvan sahiplenmek 🐾</span></li></ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="music" class="scroll-mt-24 py-16">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="flex items-center gap-3 mb-8">
+    <div class="p-2 rounded-2xl bg-rose-100 dark:bg-rose-900/40"><i class="w-5 h-5 text-rose-500" data-lucide="star"></i></div>
+    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Müzik Listemiz</h2>
+    </div>
+    <div class="mt-10 rounded-2xl border bg-rose-100 dark:bg-rose-900/40">
+
+  <div class="aspect-video w-full overflow-hidden rounded-xl">
+    <iframe style="border-radius:8px"
+      src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator"
+      width="100%" height="100%" frameBorder="0" allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"></iframe>
+  </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="scroll-mt-24 py-16" id="contact">
+<div class="max-w-6xl mx-auto px-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="p-2 rounded-2xl bg-rose-100 dark:bg-rose-900/40"><i class="w-5 h-5 text-rose-500" data-lucide="mail"></i></div>
+<h2 class="text-2xl md:text-3xl font-semibold tracking-tight">İletişim</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-6">
+<a class="rounded-2xl border border-black/5 dark:bg-rose-900/40 p-5 glass dark:glass-dark shadow-soft flex items-center gap-3" href="" id="igLink" rel="noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="instagram"></i> Instagram
+        </a>
+<a class="rounded-2xl border border-black/5 dark:bg-rose-900/40 p-5 glass dark:glass-dark shadow-soft flex items-center gap-3" id="mailLink">
+<i class="w-5 h-5" data-lucide="mail"></i> E‑posta
+        </a>
+<a class="rounded-2xl border border-black/5 dark:bg-rose-900/40 p-5 glass dark:glass-dark shadow-soft flex items-center gap-3" id="phoneLink">
+<i class="w-5 h-5" data-lucide="phone"></i> Telefon
+        </a>
+</div>
+</div>
+</section><footer class="py-10">
+<div class="max-w-6xl mx-auto px-6 text-sm opacity-70 flex items-center justify-between">
+<div id="copyright"></div>
+<div class="flex items-center gap-2">
+<i class="w-4 h-4 text-rose-500" data-lucide="heart"></i>
+<span id="footerCity"></span>
+</div>
+</div>
+</footer>
+<script>
+    // Render icons
+    lucide.createIcons();
+
+    // Theme toggle
+    const themeBtn = document.getElementById('themeToggle');
+    themeBtn.addEventListener('click', () => {
+      const el = document.documentElement;
+      el.classList.toggle('dark');
+      // change icon
+      themeBtn.innerHTML = `<i data-lucide="${el.classList.contains('dark') ? 'sun' : 'moon'}" class="w-5 h-5"></i>`;
+      lucide.createIcons();
+    });
+
+    // Fill hero & header
+    document.getElementById('brand').textContent = `${CONFIG.couple.you} & ${CONFIG.couple.partner}`;
+    document.getElementById('city').textContent = CONFIG.couple.city;
+    document.getElementById('headline').textContent = CONFIG.hero.headline;
+    document.getElementById('sub').textContent = CONFIG.hero.sub;
+    document.getElementById('heroPhoto').src = CONFIG.hero.photo;
+    document.getElementById('togetherDays').textContent = daysBetween(CONFIG.couple.startedAt) + ' gün';
+
+    // Dates
+    const start = new Date(CONFIG.couple.startedAt);
+    document.getElementById('firstDay').textContent = `${pad(start.getDate())}.${pad(start.getMonth()+1)}.${start.getFullYear()}`;
+    document.getElementById('dayCount').textContent = daysBetween(CONFIG.couple.startedAt);
+    const next = nextAnniversary(CONFIG.couple.startedAt);
+    document.getElementById('nextAnniv').textContent = `${pad(next.date.getDate())}.${pad(next.date.getMonth()+1)}.${next.date.getFullYear()}`;
+    document.getElementById('nextAnnivLeft').textContent = `Kalan ${next.days} gün`;
+
+    // Gallery
+    const grid = document.getElementById('galleryGrid');
+    CONFIG.gallery.forEach((src, i) => {
+      const wrap = document.createElement('div');
+      wrap.className = `overflow-hidden rounded-2xl border border-black/5 dark:border-white/10 ${i%5===0?'col-span-2 row-span-2':''}`;
+      const img = document.createElement('img');
+      img.src = src; img.alt = 'photo-'+i; img.className = 'w-full h-full object-cover transition-transform duration-500 hover:scale-105';
+      wrap.appendChild(img);
+      grid.appendChild(wrap);
+    });
+
+    // Timeline
+    const tl = document.getElementById('timeline');
+    CONFIG.timeline.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'rounded-2xl border border-black/5 dark:border-white/10 p-5 glass dark:glass-dark shadow-soft';
+      card.innerHTML = `
+        <div class="flex items-center gap-3">
+          <div class="p-2 rounded-xl bg-rose-50 dark:bg-rose-900/30 text-rose-600 dark:text-rose-200"><i data-lucide="sparkles" class="w-5 h-5"></i></div>
+          <div>
+            <h3 class="font-semibold">${item.title}</h3>
+            <p class="text-sm opacity-70">${new Date(item.date).toLocaleDateString()}</p>
+          </div>
+        </div>
+        <p class="mt-3 opacity-90">${item.text}</p>`;
+      tl.appendChild(card);
+    });
+    lucide.createIcons();
+
+    // Spotify
+
+
+    // Plans
+    const near = ['Ada\'da bisiklet turu','Küçük bir hafta sonu kaçamağı','Birlikte yemek kursu'];
+    const dream = ['İtalya turu','Kamp + yıldızları izleme','Ortak bir proje başlatmak'];
+    near.forEach(t => {
+      const li = document.createElement('li');
+      li.className = 'flex items-center gap-2';
+      li.innerHTML = '<i data-lucide="check" class="w-4 h-4 opacity-60"></i>'+t;
+      document.getElementById('nearPlans').appendChild(li);
+    });
+    dream.forEach(t => {
+      const li = document.createElement('li');
+      li.className = 'flex items-center gap-2';
+      li.innerHTML = '<i data-lucide="star" class="w-4 h-4 opacity-60"></i>'+t;
+      document.getElementById('dreamList').appendChild(li);
+    });
+    lucide.createIcons();
+
+    // Guestbook
+    const listEl = document.getElementById('guestList');
+    const renderEntries = () => {
+      listEl.innerHTML = '';
+      const entries = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      if (entries.length === 0){
+        const card = document.createElement('div');
+        card.className = 'rounded-2xl border border-black/5 dark:border-white/10 p-5 glass dark:glass-dark shadow-soft';
+        card.innerHTML = '<p class="opacity-80">Henüz mesaj yok. İlk mesajı siz bırakın! 💌</p>';
+        listEl.appendChild(card);
+        return;
+      }
+      entries.forEach(e => {
+        const card = document.createElement('div');
+        card.className = 'rounded-2xl border border-black/5 dark:border-white/10 p-5 glass dark:glass-dark shadow-soft';
+        card.innerHTML = `
+          <div class="flex items-center justify-between">
+            <div class="font-semibold">${e.name}</div>
+            <div class="text-xs opacity-60">${new Date(e.at).toLocaleString()}</div>
+          </div>
+          <p class="mt-1">${e.msg}</p>`;
+        listEl.appendChild(card);
+      });
+    };
+
+    document.getElementById('guestForm').addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      const form = ev.currentTarget;
+      const name = form.name.value.trim();
+      const msg  = form.msg.value.trim();
+      if(!name || !msg) return;
+      const entries = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      entries.unshift({ name, msg, at: new Date().toISOString() });
+      localStorage.setItem(storageKey, JSON.stringify(entries));
+      form.reset();
+      renderEntries();
+    });
+
+    renderEntries();
+
+    // Contact links
+    document.getElementById('igLink').href = CONFIG.socials.instagram;
+    document.getElementById('mailLink').href = CONFIG.socials.mail;
+    document.getElementById('phoneLink').href = CONFIG.socials.phone;
+
+    // Footer
+    document.getElementById('footerCity').textContent = CONFIG.couple.city;
+    document.getElementById('copyright').textContent = `© ${new Date().getFullYear()} ${CONFIG.couple.you} & ${CONFIG.couple.partner}`;
+
+    // === Kalpler animasyonu ===
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random()*100+"vw";
+      heart.style.animationDuration = 3+Math.random()*3+"s";
+      heart.textContent = "💖";
+      document.body.appendChild(heart);
+      setTimeout(()=>heart.remove(),6000);
+    }, 1200);
+
+</script>
+<footer class="mt-16 py-8 bg-gradient-to-r from-rose-100 via-pink-200 to-rose-100 dark:from-zinc-900 dark:via-rose-950 dark:to-zinc-900 text-center text-zinc-700 dark:text-zinc-100">
+<p class="text-lg">Sonsuza kadar 💕 Muhammed &amp; Vera</p>
+</footer>
+
+<!-- Gizli sayaç ve placeholder alanlar: UI'yi bozmaz -->
+<div style="display:none">
+  <span id="firstDay"></span>
+  <span id="dayCount"></span>
+  <span id="nextAnniv"></span>
+  <span id="nextAnnivLeft"></span>
+  <div id="galleryGrid"></div>
+  <div id="timeline"></div>
+  <form id="guestForm"><input name="name"/><input name="msg"/></form>
+  <div id="guestList"></div>
+</div>
+
+</body>
+</html>
