@@ -418,66 +418,14 @@ geçirmek istemediğimi koi yokhan yada Allah seni bana vererek tüm vermediği 
 
     <div id="secretMessage" class="hidden mt-6 p-6 rounded-2xl bg-rose-100 dark:bg-rose-900/40 shadow-lg">
       ❤️  Sevgilim bu mesajı sadece sen görebilirsin senin aşkınla mutlu bir ömür ve sonsuzluğa seninle <br> SENİ ÇOK SEVİYORUM 💕
-      
 
 
-
-<div class="w-full max-w-md mx-auto mt-12 p-4 bg-white dark:bg-zinc-900 rounded-xl shadow-lg">
-  <!-- Başlık -->
-  <h3 class="text-center text-lg font-semibold mb-4 text-gray-700 dark:text-gray-200">🎵 Gizli Mesaj</h3>
-  
-  <!-- Custom Player -->
-  <div class="flex items-center justify-between">
-    <!-- Play/Pause Button -->
-    <button id="playBtn" class="p-3 rounded-full bg-rose-500 text-white hover:bg-rose-600 transition">
-      ▶
-    </button>
-    
-    <!-- Progress Bar -->
-    <input id="progressBar" type="range" value="0" step="1" class="w-3/4 accent-rose-500">
-    
-    <!-- Time -->
-    <span id="time" class="text-sm text-gray-600 dark:text-gray-300">0:00</span>
-  </div>
-
-  <!-- Hidden Audio -->
-  <audio id="audioPlayer">
-    <source src="music.mp3" type="audio/mpeg">
+<div class="w-full flex justify-center px-4 mt-6">
+  <audio controls class="w-full max-w-md">
+    <source src="audio/vera.mp3" type="audio/mpeg">
     Tarayıcınız audio öğesini desteklemiyor.
   </audio>
 </div>
-
-<script>
-  const audio = document.getElementById("audioPlayer");
-  const playBtn = document.getElementById("playBtn");
-  const progressBar = document.getElementById("progressBar");
-  const timeLabel = document.getElementById("time");
-
-  playBtn.addEventListener("click", () => {
-    if (audio.paused) {
-      audio.play();
-      playBtn.textContent = "⏸";
-    } else {
-      audio.pause();
-      playBtn.textContent = "▶";
-    }
-  });
-
-  audio.addEventListener("timeupdate", () => {
-    progressBar.value = Math.floor(audio.currentTime);
-    timeLabel.textContent = Math.floor(audio.currentTime / 60) + ":" + ("0" + Math.floor(audio.currentTime % 60)).slice(-2);
-  });
-
-  progressBar.addEventListener("input", () => {
-    audio.currentTime = progressBar.value;
-  });
-
-  audio.addEventListener("loadedmetadata", () => {
-    progressBar.max = Math.floor(audio.duration);
-  });
-</script>
-
-
 
 
     </div>
